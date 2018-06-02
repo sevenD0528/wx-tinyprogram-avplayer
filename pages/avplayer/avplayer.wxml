@@ -1,0 +1,22 @@
+<!-- avplayer.wxml -->
+<view class="header">
+
+<!-- 音频播放控制 -->
+<view class="play-container">
+  <image src="{{defaultAudioBgUrl}}" class="audio-disk {{isPlaying ? 'rotate-ani' : ''}}"></image>
+  <!-- <view class="play-text">
+    <text wx:if="{{hasWorkInfo}}">{{ playStatusText[playStatus] }}</text>
+    <text wx:else>暂无信息</text>
+  </view> -->
+  <view class='controller'>
+    <view class="{{ isPlaying ? 'pause-icon' : 'play-icon'}} cover-pos" id="playbtn" bindtap='playorpause'></view>
+    <view class='progress-bar'>
+      <text>{{currentTime}}</text>
+      <slider bindchange="sliderChange" bindtouchstart="sliderMoveStart" bindtouchend="sliderMoveEnd"class="progress" step="1" block-size="18" min="0" max="{{sliderMax}}" activeColor="#f43e34" backgroundColor="#eee" value="{{sliderValue}}"/>
+      <text>{{totalTime}}</text>
+    </view>
+  </view>
+</view>
+</view>
+<slider class="progress" bindchange="sliderChange" step="1" block-size="18" min="0" max="{{sliderMax}}" activeColor="#000" backgroundColor="#eee" show-value='true' value='{{sliderValue}}'/>
+ <!--<audio src="{{src}}" controls loop id="myAudio"></audio>-->
